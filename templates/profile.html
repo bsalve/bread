@@ -1,0 +1,343 @@
+{% extends "layout.html" %}
+
+{% block title %}
+    {{ summoner.name }}
+{% endblock %}
+
+{% block main %}
+
+    <div class="container">
+
+        <div class="row">
+
+            <div class="col">
+
+                <div class="my-2 p-2 border">
+
+                    <!-- Add profile image here in the future -->
+    
+                    <h1>{{ summoner.name }}</h1>
+                    <h2>Level {{ summoner.summonerLevel }}</h2>
+    
+                </div>
+
+            </div>
+
+        </div>
+
+        <div class="row">
+
+            <div class="col">
+
+                <div class="my-2 p-2 border">
+
+                    <h2>Solo/Duo</h2>
+                    {% if soloq != "Unranked" %}
+                    <h3>
+                        {{ soloq.tier }} {{ soloq.rank }} {{ soloq.lp }} lp <br>
+                        {{ soloq.wins }} wins {{ soloq.losses }} losses ({{ soloq.winrate }})
+                    </h3>
+                    {% else %}
+                    <h3>{{ soloq }}</h3>
+                    {% endif %}
+
+                </div>
+
+            </div>
+            
+            <div class="col">
+
+                <div class="my-2 p-2 border">
+
+                    <h2>Flex</h2>
+                    {% if flexq != "Unranked" %}
+                    <h3>
+                        {{ flexq.tier }} {{ flexq.rank }} {{ flexq.lp }} lp <br>
+                        {{ flexq.wins }} wins {{ flexq.losses }} losses ({{ flexq.winrate }})
+                    </h3>
+                    {% else %}
+                    <h3>{{ flexq }}</h3>
+                    {% endif %}
+
+                </div>
+
+            </div>
+
+        </div>
+
+        <div class="row">
+
+            <div class="col">
+
+                <div id="match_history" class="my-2 p-2 border">
+
+                    <template id="match_data">
+
+                        <div class="table-responsive">
+
+                            <table class="table table-striped">
+
+                                <tr>
+
+                                    <th>Summoner</th>
+                                    <th>Champion</th>
+                                    <th>Spells</th>
+                                    <th>K/D/A</th>
+                                    <th>CS</th>
+                                    <th>Damage</th>
+                                    <th>Gold Earned</th>
+                                    <th>Vision</th>
+                                    <th>Level</th>
+                                    <th>Items</th>
+
+                                </tr>
+
+                                <!-- All 10 summoners (Test out if you can make template in a template to avoid hardcoding) -->
+
+                                <tr>
+
+                                    <td><a id="name1" href="#"></a></td>
+                                    <td id="champion1"></td>
+                                    <td id="summonerspells1"></td>
+                                    <td id="kda1"></td>
+                                    <td id="cs1"></td>
+                                    <td id="damage1"></td>
+                                    <td id="goldearned1"></td>
+                                    <td id="visionscore1"></td>
+                                    <td id="champlevel1"></td>
+                                    <td id="items1"></td>
+
+                                </tr>
+
+                                <tr>
+
+                                    <td><a id="name2" href="#"></a></td>
+                                    <td id="champion2"></td>
+                                    <td id="summonerspells2"></td>
+                                    <td id="kda2"></td>
+                                    <td id="cs2"></td>
+                                    <td id="damage2"></td>
+                                    <td id="goldearned2"></td>
+                                    <td id="visionscore2"></td>
+                                    <td id="champlevel2"></td>
+                                    <td id="items2"></td>
+
+                                </tr>
+
+                                <tr>
+
+                                    <td><a id="name3" href="#"></a></td>
+                                    <td id="champion3"></td>
+                                    <td id="summonerspells3"></td>
+                                    <td id="kda3"></td>
+                                    <td id="cs3"></td>
+                                    <td id="damage3"></td>
+                                    <td id="goldearned3"></td>
+                                    <td id="visionscore3"></td>
+                                    <td id="champlevel3"></td>
+                                    <td id="items3"></td>
+
+                                </tr>
+
+                                <tr>
+
+                                    <td><a id="name4" href="#"></a></td>
+                                    <td id="champion4"></td>
+                                    <td id="summonerspells4"></td>
+                                    <td id="kda4"></td>
+                                    <td id="cs4"></td>
+                                    <td id="damage4"></td>
+                                    <td id="goldearned4"></td>
+                                    <td id="visionscore4"></td>
+                                    <td id="champlevel4"></td>
+                                    <td id="items4"></td>
+
+                                </tr>
+
+                                <tr>
+
+                                    <td><a id="name5" href="#"></a></td>
+                                    <td id="champion5"></td>
+                                    <td id="summonerspells5"></td>
+                                    <td id="kda5"></td>
+                                    <td id="cs5"></td>
+                                    <td id="damage5"></td>
+                                    <td id="goldearned5"></td>
+                                    <td id="visionscore5"></td>
+                                    <td id="champlevel5"></td>
+                                    <td id="items5"></td>
+
+                                </tr>
+
+                                <tr>
+
+                                    <td><a id="name6" href="#"></a></td>
+                                    <td id="champion6"></td>
+                                    <td id="summonerspells6"></td>
+                                    <td id="kda6"></td>
+                                    <td id="cs6"></td>
+                                    <td id="damage6"></td>
+                                    <td id="goldearned6"></td>
+                                    <td id="visionscore6"></td>
+                                    <td id="champlevel6"></td>
+                                    <td id="items6"></td>
+
+                                </tr>
+
+                                <tr>
+
+                                    <td><a id="name7" href="#"></a></td>
+                                    <td id="champion7"></td>
+                                    <td id="summonerspells7"></td>
+                                    <td id="kda7"></td>
+                                    <td id="cs7"></td>
+                                    <td id="damage7"></td>
+                                    <td id="goldearned7"></td>
+                                    <td id="visionscore7"></td>
+                                    <td id="champlevel7"></td>
+                                    <td id="items7"></td>
+
+                                </tr>
+
+                                <tr>
+
+                                    <td><a id="name8" href="#"></a></td>
+                                    <td id="champion8"></td>
+                                    <td id="summonerspells8"></td>
+                                    <td id="kda8"></td>
+                                    <td id="cs8"></td>
+                                    <td id="damage8"></td>
+                                    <td id="goldearned8"></td>
+                                    <td id="visionscore8"></td>
+                                    <td id="champlevel8"></td>
+                                    <td id="items8"></td>
+
+                                </tr>
+
+                                <tr>
+
+                                    <td><a id="name9" href="#"></a></td>
+                                    <td id="champion9"></td>
+                                    <td id="summonerspells9"></td>
+                                    <td id="kda9"></td>
+                                    <td id="cs9"></td>
+                                    <td id="damage9"></td>
+                                    <td id="goldearned9"></td>
+                                    <td id="visionscore9"></td>
+                                    <td id="champlevel9"></td>
+                                    <td id="items9"></td>
+
+                                </tr>
+
+                                <tr>
+
+                                    <td><a id="name10" href="#"></a></td>
+                                    <td id="champion10"></td>
+                                    <td id="summonerspells10"></td>
+                                    <td id="kda10"></td>
+                                    <td id="cs10"></td>
+                                    <td id="damage10"></td>
+                                    <td id="goldearned10"></td>
+                                    <td id="visionscore10"></td>
+                                    <td id="champlevel10"></td>
+                                    <td id="items10"></td>
+
+                                </tr>
+
+                            </table>
+
+                        </div>
+
+                    </template>
+
+                </div>
+
+                <div class="d-flex justify-content-center mb-3" id="sentinel">
+
+                    <div class="spinner-border" role="status"></div>
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </div>
+
+<script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax.libs.popper.js/1.14.7/umd/popper.min.js"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
+
+<script>
+
+    var match_history = document.querySelector("#match_history");
+    var match_data = document.querySelector("#match_data");
+
+    var sentinel = document.querySelector("#sentinel");
+    var counter = 0;
+
+    function loadItems() {
+
+        fetch(`/load?c=${counter}`).then((response) => {
+            response.json().then((matches) => {
+
+                if (!matches.length) {
+
+                    sentinel.innerHTML = "No more matches";
+
+                }
+
+                for (var i = 0; i < matches.length; i++) {
+
+                    let match_data_clone = match_data.content.cloneNode(true);
+
+                    for (var j = 0; j < 10; j++) {
+
+                        var summoner_number = j + 1;
+
+                        match_data_clone.querySelector("#name" + summoner_number).setAttribute("href", "/profile?search=" + matches[i]["info"][j]["name"]);
+                        match_data_clone.querySelector("#name" + summoner_number).innerHTML = matches[i]["info"][j]["name"];
+                        match_data_clone.querySelector("#champion" + summoner_number).innerHTML = matches[i]["info"][j]["champion"];
+                        match_data_clone.querySelector("#summonerspells" + summoner_number).innerHTML = [matches[i]["info"][j]["ss1"], matches[i]["info"][j]["ss2"]];
+                        match_data_clone.querySelector("#kda" + summoner_number).innerHTML = matches[i]["info"][j]["kills"] + "/" + matches[i]["info"][j]["deaths"] + "/" + matches[i]["info"][j]["assists"];
+                        match_data_clone.querySelector("#cs" + summoner_number).innerHTML = matches[i]["info"][j]["cs"];
+                        match_data_clone.querySelector("#damage" + summoner_number).innerHTML = matches[i]["info"][j]["damage"];
+                        match_data_clone.querySelector("#goldearned" + summoner_number).innerHTML = matches[i]["info"][j]["goldEarned"];
+                        match_data_clone.querySelector("#visionscore" + summoner_number).innerHTML = matches[i]["info"][j]["visionScore"];
+                        match_data_clone.querySelector("#champlevel" + summoner_number).innerHTML = matches[i]["info"][j]["champLevel"];
+
+                        var item_list = [];
+                        for (var k = 0; k < matches[i]["info"][j]["item_list"].length; k++) {
+
+                            item_list.push(matches[i]["info"][j]["item_list"][k]);
+
+                        }
+
+                        match_data_clone.querySelector("#items" + summoner_number).innerHTML = item_list;
+
+                    }
+
+                    match_history.appendChild(match_data_clone);
+                    counter += 1;
+
+                }
+            })
+        })
+    }
+
+    var intersectionObserver = new IntersectionObserver(entries => {
+
+        if (entries[0].intersectionRatio <= 0) {
+
+            return;
+
+        }
+
+        loadItems();
+    });
+    
+    intersectionObserver.observe(sentinel);
+
+</script>
+
+{% endblock %}

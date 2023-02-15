@@ -43,13 +43,13 @@ def profile():
 
             return render_template("error.html", error_message = "Refused Access (Invalid API key)", error_code = error_code)
 
-        elif error_code == 429: 
-
-            return render_template("error.html", error_message = "Too many requests. Try again later.", error_code = error_code)
-
         elif error_code == 404: 
 
             return render_template("error.html", error_message = "Summoner not found.", error_code = error_code)
+        
+        elif error_code == 429: 
+
+            return render_template("error.html", error_message = "Too many requests. Try again later.", error_code = error_code)
 
         else: 
 

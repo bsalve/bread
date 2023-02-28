@@ -11,6 +11,7 @@ matches = []
 quantity = 5
 posts = 20
 
+# Index route: Updates static data for region selected (regional support TODO)
 @app.route("/")
 def index():
 
@@ -18,6 +19,7 @@ def index():
 
     return render_template("index.html")
 
+# Profile route: Displays summoner info, rank, match history
 @app.route("/profile")
 def profile():
 
@@ -31,6 +33,7 @@ def profile():
 
         return redirect(request.referrer)
 
+    # Tries to store summoner data in summoner variable, return error page if fails
     try: 
 
         summoner = watcher.summoner.by_name(region, query)
@@ -60,6 +63,7 @@ def profile():
     soloq = "Unranked"
     flexq = "Unranked"
 
+    # Filters through ranked data to find solo/duo and flex queue rank
     for queue_type in range(len(ranked_stats)):
 
         if ranked_stats[queue_type]["queueType"] == "RANKED_SOLO_5x5":
@@ -70,6 +74,7 @@ def profile():
 
             flexq = get_ranked_stats(queue_type, ranked_stats)
 
+    # Iterates through match list ("posts" number of times) and returns dictionary of match data
     match_list = watcher.match.matchlist_by_puuid(region, summoner["puuid"])
 
     for i in range(posts):
@@ -78,6 +83,7 @@ def profile():
 
     return render_template("profile.html", summoner = summoner, soloq = soloq, flexq = flexq, matches = matches)
 
+# Load route: Returns match data based on counter variable, which is returned from the front end
 @app.route("/load")
 def load():
 

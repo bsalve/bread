@@ -13,8 +13,6 @@
             <div class="col">
 
                 <div class="my-2 p-2 border">
-
-                    <!-- Add profile image here in the future -->
     
                     <h1>{{ summoner.name }}</h1>
                     <h2>Level {{ summoner.summonerLevel }}</h2>
@@ -75,322 +73,20 @@
 
                         <div class="table-responsive">
 
-                            <table class="table table-striped">
+                            <table id="match_data_table" class="table table-striped">
 
                                 <tr>
 
-                                    <th>Summoner</th>
-                                    <th>Champion</th>
-                                    <th>Spells</th>
-                                    <th>K/D/A</th>
-                                    <th>CS</th>
-                                    <th>Damage</th>
-                                    <th>Gold Earned</th>
-                                    <th>Vision</th>
-                                    <th>Level</th>
-                                    <th>Items</th>
-
-                                </tr>
-
-                                <!-- All 10 summoners (Test out if you can make template in a template to avoid hardcoding) -->
-
-                                <tr>
-
-                                    <td><a id="name1" href="#"></a></td>
-                                    <td><img id="champion1" class="mx-auto img-fluid" src="" alt="" width="50" height="50"></td>
-                                    <td>
-                                        <span>
-                                            <img id="summoner1spell1" class="mx-auto img-fluid" src="" width="50" height="50">
-                                            <img id="summoner1spell2" class="mx-auto img-fluid" src="" width="50" height="50">
-                                        </span>
-                                    </td>
-                                    <td id="kda1"></td>
-                                    <td id="cs1"></td>
-                                    <td id="damage1"></td>
-                                    <td id="goldearned1"></td>
-                                    <td id="visionscore1"></td>
-                                    <td id="champlevel1"></td>
-                                    <td>
-                                        <span>
-                                            <img id="summoner1item1" class="mx-auto img-fluid" src="" width="50" height="50">
-                                            <img id="summoner1item2" class="mx-auto img-fluid" src="" width="50" height="50">
-                                            <img id="summoner1item3" class="mx-auto img-fluid" src="" width="50" height="50">
-                                            <img id="summoner1item4" class="mx-auto img-fluid" src="" width="50" height="50">
-                                            <img id="summoner1item5" class="mx-auto img-fluid" src="" width="50" height="50">
-                                            <img id="summoner1item6" class="mx-auto img-fluid" src="" width="50" height="50">
-                                            <img id="summoner1item7" class="mx-auto img-fluid" src="" width="50" height="50">
-                                        </span>
-                                    </td>
-
-                                </tr>
-
-                                <tr>
-
-                                    <td><a id="name2" href="#"></a></td>
-                                    <td><img id="champion2" class="mx-auto img-fluid" src="" alt="" width="50" height="50"></td>
-                                    <td>
-                                        <span>
-                                            <img id="summoner2spell1" class="mx-auto img-fluid" src="" width="50" height="50">
-                                            <img id="summoner2spell2" class="mx-auto img-fluid" src="" width="50" height="50">
-                                        </span>
-                                    </td>
-                                    <td id="kda2"></td>
-                                    <td id="cs2"></td>
-                                    <td id="damage2"></td>
-                                    <td id="goldearned2"></td>
-                                    <td id="visionscore2"></td>
-                                    <td id="champlevel2"></td>
-                                    <td>
-                                        <span>
-                                            <img id="summoner2item1" class="mx-auto img-fluid" src="" width="50" height="50">
-                                            <img id="summoner2item2" class="mx-auto img-fluid" src="" width="50" height="50">
-                                            <img id="summoner2item3" class="mx-auto img-fluid" src="" width="50" height="50">
-                                            <img id="summoner2item4" class="mx-auto img-fluid" src="" width="50" height="50">
-                                            <img id="summoner2item5" class="mx-auto img-fluid" src="" width="50" height="50">
-                                            <img id="summoner2item6" class="mx-auto img-fluid" src="" width="50" height="50">
-                                            <img id="summoner2item7" class="mx-auto img-fluid" src="" width="50" height="50">
-                                        </span>
-                                    </td>
-
-                                </tr>
-
-                                <tr>
-
-                                    <td><a id="name3" href="#"></a></td>
-                                    <td><img id="champion3" class="mx-auto img-fluid" src="" alt="" width="50" height="50"></td>
-                                    <td>
-                                        <span>
-                                            <img id="summoner3spell1" class="mx-auto img-fluid" src="" width="50" height="50">
-                                            <img id="summoner3spell2" class="mx-auto img-fluid" src="" width="50" height="50">
-                                        </span>
-                                    </td>
-                                    <td id="kda3"></td>
-                                    <td id="cs3"></td>
-                                    <td id="damage3"></td>
-                                    <td id="goldearned3"></td>
-                                    <td id="visionscore3"></td>
-                                    <td id="champlevel3"></td>
-                                    <td>
-                                        <span>
-                                            <img id="summoner3item1" class="mx-auto img-fluid" src="" width="50" height="50">
-                                            <img id="summoner3item2" class="mx-auto img-fluid" src="" width="50" height="50">
-                                            <img id="summoner3item3" class="mx-auto img-fluid" src="" width="50" height="50">
-                                            <img id="summoner3item4" class="mx-auto img-fluid" src="" width="50" height="50">
-                                            <img id="summoner3item5" class="mx-auto img-fluid" src="" width="50" height="50">
-                                            <img id="summoner3item6" class="mx-auto img-fluid" src="" width="50" height="50">
-                                            <img id="summoner3item7" class="mx-auto img-fluid" src="" width="50" height="50">
-                                        </span>
-                                    </td>
-
-                                </tr>
-
-                                <tr>
-
-                                    <td><a id="name4" href="#"></a></td>
-                                    <td><img id="champion4" class="mx-auto img-fluid" src="" alt="" width="50" height="50"></td>
-                                    <td>
-                                        <span>
-                                            <img id="summoner4spell1" class="mx-auto img-fluid" src="" width="50" height="50">
-                                            <img id="summoner4spell2" class="mx-auto img-fluid" src="" width="50" height="50">
-                                        </span>
-                                    </td>
-                                    <td id="kda4"></td>
-                                    <td id="cs4"></td>
-                                    <td id="damage4"></td>
-                                    <td id="goldearned4"></td>
-                                    <td id="visionscore4"></td>
-                                    <td id="champlevel4"></td>
-                                    <td>
-                                        <span>
-                                            <img id="summoner4item1" class="mx-auto img-fluid" src="" width="50" height="50">
-                                            <img id="summoner4item2" class="mx-auto img-fluid" src="" width="50" height="50">
-                                            <img id="summoner4item3" class="mx-auto img-fluid" src="" width="50" height="50">
-                                            <img id="summoner4item4" class="mx-auto img-fluid" src="" width="50" height="50">
-                                            <img id="summoner4item5" class="mx-auto img-fluid" src="" width="50" height="50">
-                                            <img id="summoner4item6" class="mx-auto img-fluid" src="" width="50" height="50">
-                                            <img id="summoner4item7" class="mx-auto img-fluid" src="" width="50" height="50">
-                                        </span>
-                                    </td>
-
-                                </tr>
-
-                                <tr>
-
-                                    <td><a id="name5" href="#"></a></td>
-                                    <td><img id="champion5" class="mx-auto img-fluid" src="" alt="" width="50" height="50"></td>
-                                    <td>
-                                        <span>
-                                            <img id="summoner5spell1" class="mx-auto img-fluid" src="" width="50" height="50">
-                                            <img id="summoner5spell2" class="mx-auto img-fluid" src="" width="50" height="50">
-                                        </span>
-                                    </td>
-                                    <td id="kda5"></td>
-                                    <td id="cs5"></td>
-                                    <td id="damage5"></td>
-                                    <td id="goldearned5"></td>
-                                    <td id="visionscore5"></td>
-                                    <td id="champlevel5"></td>
-                                    <td>
-                                        <span>
-                                            <img id="summoner5item1" class="mx-auto img-fluid" src="" width="50" height="50">
-                                            <img id="summoner5item2" class="mx-auto img-fluid" src="" width="50" height="50">
-                                            <img id="summoner5item3" class="mx-auto img-fluid" src="" width="50" height="50">
-                                            <img id="summoner5item4" class="mx-auto img-fluid" src="" width="50" height="50">
-                                            <img id="summoner5item5" class="mx-auto img-fluid" src="" width="50" height="50">
-                                            <img id="summoner5item6" class="mx-auto img-fluid" src="" width="50" height="50">
-                                            <img id="summoner5item7" class="mx-auto img-fluid" src="" width="50" height="50">
-                                        </span>
-                                    </td>
-
-                                </tr>
-
-                                <tr>
-
-                                    <td><a id="name6" href="#"></a></td>
-                                    <td><img id="champion6" class="mx-auto img-fluid" src="" alt="" width="50" height="50"></td>
-                                    <td>
-                                        <span>
-                                            <img id="summoner6spell1" class="mx-auto img-fluid" src="" width="50" height="50">
-                                            <img id="summoner6spell2" class="mx-auto img-fluid" src="" width="50" height="50">
-                                        </span>
-                                    </td>
-                                    <td id="kda6"></td>
-                                    <td id="cs6"></td>
-                                    <td id="damage6"></td>
-                                    <td id="goldearned6"></td>
-                                    <td id="visionscore6"></td>
-                                    <td id="champlevel6"></td>
-                                    <td>
-                                        <span>
-                                            <img id="summoner6item1" class="mx-auto img-fluid" src="" width="50" height="50">
-                                            <img id="summoner6item2" class="mx-auto img-fluid" src="" width="50" height="50">
-                                            <img id="summoner6item3" class="mx-auto img-fluid" src="" width="50" height="50">
-                                            <img id="summoner6item4" class="mx-auto img-fluid" src="" width="50" height="50">
-                                            <img id="summoner6item5" class="mx-auto img-fluid" src="" width="50" height="50">
-                                            <img id="summoner6item6" class="mx-auto img-fluid" src="" width="50" height="50">
-                                            <img id="summoner6item7" class="mx-auto img-fluid" src="" width="50" height="50">
-                                        </span>
-                                    </td>
-
-                                </tr>
-
-                                <tr>
-
-                                    <td><a id="name7" href="#"></a></td>
-                                    <td><img id="champion7" class="mx-auto img-fluid" src="" alt="" width="50" height="50"></td>
-                                    <td>
-                                        <span>
-                                            <img id="summoner7spell1" class="mx-auto img-fluid" src="" width="50" height="50">
-                                            <img id="summoner7spell2" class="mx-auto img-fluid" src="" width="50" height="50">
-                                        </span>
-                                    </td>
-                                    <td id="kda7"></td>
-                                    <td id="cs7"></td>
-                                    <td id="damage7"></td>
-                                    <td id="goldearned7"></td>
-                                    <td id="visionscore7"></td>
-                                    <td id="champlevel7"></td>
-                                    <td>
-                                        <span>
-                                            <img id="summoner7item1" class="mx-auto img-fluid" src="" width="50" height="50">
-                                            <img id="summoner7item2" class="mx-auto img-fluid" src="" width="50" height="50">
-                                            <img id="summoner7item3" class="mx-auto img-fluid" src="" width="50" height="50">
-                                            <img id="summoner7item4" class="mx-auto img-fluid" src="" width="50" height="50">
-                                            <img id="summoner7item5" class="mx-auto img-fluid" src="" width="50" height="50">
-                                            <img id="summoner7item6" class="mx-auto img-fluid" src="" width="50" height="50">
-                                            <img id="summoner7item7" class="mx-auto img-fluid" src="" width="50" height="50">
-                                        </span>
-                                    </td>
-
-                                </tr>
-
-                                <tr>
-
-                                    <td><a id="name8" href="#"></a></td>
-                                    <td><img id="champion8" class="mx-auto img-fluid" src="" alt="" width="50" height="50"></td>
-                                    <td>
-                                        <span>
-                                            <img id="summoner8spell1" class="mx-auto img-fluid" src="" width="50" height="50">
-                                            <img id="summoner8spell2" class="mx-auto img-fluid" src="" width="50" height="50">
-                                        </span>
-                                    </td>
-                                    <td id="kda8"></td>
-                                    <td id="cs8"></td>
-                                    <td id="damage8"></td>
-                                    <td id="goldearned8"></td>
-                                    <td id="visionscore8"></td>
-                                    <td id="champlevel8"></td>
-                                    <td>
-                                        <span>
-                                            <img id="summoner8item1" class="mx-auto img-fluid" src="" width="50" height="50">
-                                            <img id="summoner8item2" class="mx-auto img-fluid" src="" width="50" height="50">
-                                            <img id="summoner8item3" class="mx-auto img-fluid" src="" width="50" height="50">
-                                            <img id="summoner8item4" class="mx-auto img-fluid" src="" width="50" height="50">
-                                            <img id="summoner8item5" class="mx-auto img-fluid" src="" width="50" height="50">
-                                            <img id="summoner8item6" class="mx-auto img-fluid" src="" width="50" height="50">
-                                            <img id="summoner8item7" class="mx-auto img-fluid" src="" width="50" height="50">
-                                        </span>
-                                    </td>
-
-                                </tr>
-
-                                <tr>
-
-                                    <td><a id="name9" href="#"></a></td>
-                                    <td><img id="champion9" class="mx-auto img-fluid" src="" alt="" width="50" height="50"></td>
-                                    <td>
-                                        <span>
-                                            <img id="summoner9spell1" class="mx-auto img-fluid" src="" width="50" height="50">
-                                            <img id="summoner9spell2" class="mx-auto img-fluid" src="" width="50" height="50">
-                                        </span>
-                                    </td>
-                                    <td id="kda9"></td>
-                                    <td id="cs9"></td>
-                                    <td id="damage9"></td>
-                                    <td id="goldearned9"></td>
-                                    <td id="visionscore9"></td>
-                                    <td id="champlevel9"></td>
-                                    <td>
-                                        <span>
-                                            <img id="summoner9item1" class="mx-auto img-fluid" src="" width="50" height="50">
-                                            <img id="summoner9item2" class="mx-auto img-fluid" src="" width="50" height="50">
-                                            <img id="summoner9item3" class="mx-auto img-fluid" src="" width="50" height="50">
-                                            <img id="summoner9item4" class="mx-auto img-fluid" src="" width="50" height="50">
-                                            <img id="summoner9item5" class="mx-auto img-fluid" src="" width="50" height="50">
-                                            <img id="summoner9item6" class="mx-auto img-fluid" src="" width="50" height="50">
-                                            <img id="summoner9item7" class="mx-auto img-fluid" src="" width="50" height="50">
-                                        </span>
-                                    </td>
-
-                                </tr>
-
-                                <tr>
-
-                                    <td><a id="name10" href="#"></a></td>
-                                    <td><img id="champion10" class="mx-auto img-fluid" src="" alt="" width="50" height="50"></td>
-                                    <td>
-                                        <span>
-                                            <img id="summoner10spell1" class="mx-auto img-fluid" src="" width="50" height="50">
-                                            <img id="summoner10spell2" class="mx-auto img-fluid" src="" width="50" height="50">
-                                        </span>
-                                    </td>
-                                    <td id="kda10"></td>
-                                    <td id="cs10"></td>
-                                    <td id="damage10"></td>
-                                    <td id="goldearned10"></td>
-                                    <td id="visionscore10"></td>
-                                    <td id="champlevel10"></td>
-                                    <td>
-                                        <span>
-                                            <img id="summoner10item1" class="mx-auto img-fluid" src="" width="50" height="50">
-                                            <img id="summoner10item2" class="mx-auto img-fluid" src="" width="50" height="50">
-                                            <img id="summoner10item3" class="mx-auto img-fluid" src="" width="50" height="50">
-                                            <img id="summoner10item4" class="mx-auto img-fluid" src="" width="50" height="50">
-                                            <img id="summoner10item5" class="mx-auto img-fluid" src="" width="50" height="50">
-                                            <img id="summoner10item6" class="mx-auto img-fluid" src="" width="50" height="50">
-                                            <img id="summoner10item7" class="mx-auto img-fluid" src="" width="50" height="50">
-                                        </span>
-                                    </td>
+                                    <th style="width:15%">Summoner</th>
+                                    <th style="width:5%">Champion</th>
+                                    <th style="width:10%">Spells</th>
+                                    <th style="width:6%">K/D/A</th>
+                                    <th style="width:5%">CS</th>
+                                    <th style="width:6%">Damage</th>
+                                    <th style="width:9%">Gold Earned</th>
+                                    <th style="width:6%">Vision</th>
+                                    <th style="width:5%">Level</th>
+                                    <th style="width:33%">Items</th>
 
                                 </tr>
 
@@ -415,7 +111,6 @@
     </div>
 
 <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"></script>
-<script src="https://cdnjs.cloudflare.com/ajax.libs.popper.js/1.14.7/umd/popper.min.js"></script>
 <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
 
 <script>
@@ -426,11 +121,97 @@
     var sentinel = document.querySelector("#sentinel");
     var counter = 0;
 
+    // Creates table row to the match_data_table by editing the DOM
+    function addSummonerRow(summoner, match_data_clone) {
+
+        var table = match_data_clone.querySelector("#match_data_table");
+
+        var row = table.insertRow(1);
+
+        // Username
+        var name = row.insertCell(0).appendChild(document.createElement("a"));
+        name.setAttribute("href", "/profile?search=" + summoner["name"]);
+        name.innerHTML = summoner["name"];
+
+        // Champion
+        var champion = row.insertCell(1).appendChild(document.createElement("img"));
+        champion.setAttribute("src", "https://ddragon.leagueoflegends.com/cdn/13.3.1/img/champion/" + summoner["champion"] + ".png");
+        champion.setAttribute("alt", summoner["champion"]);
+        champion.setAttribute("class", "mx-auto img-fluid");
+        champion.setAttribute("width", "50px");
+        champion.setAttribute("height", "50px");
+
+        // Summoner Spells
+        var summonerSpells = row.insertCell(2).appendChild(document.createElement("span"));
+
+        var summonerSpell1 = summonerSpells.appendChild(document.createElement("img"));
+        summonerSpell1.setAttribute("src", "http://ddragon.leagueoflegends.com/cdn/13.3.1/img/spell/" + summoner["ss1"] + ".png");
+        summonerSpell1.setAttribute("alt", summoner["ss1"]);
+        summonerSpell1.setAttribute("class", "mx-auto img-fluid");
+        summonerSpell1.setAttribute("width", "50px");
+        summonerSpell1.setAttribute("height", "50px");
+
+        var summonerSpell2 = summonerSpells.appendChild(document.createElement("img"));
+        summonerSpell2.setAttribute("src", "http://ddragon.leagueoflegends.com/cdn/13.3.1/img/spell/" + summoner["ss2"] + ".png");
+        summonerSpell2.setAttribute("alt", summoner["ss2"]);
+        summonerSpell2.setAttribute("class", "mx-auto img-fluid");
+        summonerSpell2.setAttribute("width", "50px");
+        summonerSpell2.setAttribute("height", "50px");
+
+        // KDA, CS, Damage, Vision Score, Champion Level
+        var kda = row.insertCell(3).innerHTML = (summoner["kills"] + "/" + summoner["deaths"] + "/" + summoner["assists"]);
+        var cs = row.insertCell(4).innerHTML = summoner["cs"];
+        var damage = row.insertCell(5).innerHTML = summoner["damage"];
+        var goldEarned = row.insertCell(6).innerHTML = summoner["goldEarned"];
+        var visionScore = row.insertCell(7).innerHTML = summoner["visionScore"];
+        var champLevel = row.insertCell(8).innerHTML = summoner["champLevel"];
+
+        // Items
+        var summonerItems = row.insertCell(9).appendChild(document.createElement("span"));
+        for (var k = 0; k < summoner["item_list"].length; k++) {
+
+            var summonerItem = summonerItems.appendChild(document.createElement("img"));
+
+            if (summoner["item_list"][k] == 0) {
+
+                summonerItem.setAttribute("src", "https://ddragon.leagueoflegends.com/cdn/10.2.1/img/profileicon/29.png");
+                summonerItem.setAttribute("class", "mx-auto img-fluid");
+                summonerItem.setAttribute("width", "50px");
+                summonerItem.setAttribute("height", "50px");
+            }
+
+            else {
+
+                summonerItem.setAttribute("src", "http://ddragon.leagueoflegends.com/cdn/13.3.1/img/item/" + summoner["item_list"][k] + ".png");
+                summonerItem.setAttribute("class", "mx-auto img-fluid");
+                summonerItem.setAttribute("width", "50px");
+                summonerItem.setAttribute("height", "50px");
+
+            }
+
+        }
+
+        if (summoner["win"] == true) {
+
+            row.setAttribute("bgcolor", "#3C0D1A");
+
+        }
+
+        else {
+
+            row.setAttribute("bgcolor", "#03333C")
+
+        }
+
+    }
+
+    // Gets match data from back end with /load route then parses it and adds it to DOM
     function loadItems() {
 
         fetch(`/load?c=${counter}`).then((response) => {
             response.json().then((matches) => {
 
+                // If there are no more matches loaded with front end, display to user
                 if (!matches.length) {
 
                     sentinel.innerHTML = "No more matches";
@@ -443,39 +224,7 @@
 
                     for (var j = 0; j < 10; j++) {
 
-                        var summoner_number = j + 1;
-
-                        match_data_clone.querySelector("#name" + summoner_number).setAttribute("href", "/profile?search=" + matches[i]["info"][j]["name"]);
-                        match_data_clone.querySelector("#name" + summoner_number).innerHTML = matches[i]["info"][j]["name"];
-
-                        match_data_clone.querySelector("#champion" + summoner_number).setAttribute("src", "https://ddragon.leagueoflegends.com/cdn/12.3.1/img/champion/" + matches[i]["info"][j]["champion"] + ".png");
-                        match_data_clone.querySelector("#champion" + summoner_number).setAttribute("alt", matches[i]["info"][j]["champion"]);
-
-                        match_data_clone.querySelector("#summoner" + summoner_number + "spell1").setAttribute("src", "http://ddragon.leagueoflegends.com/cdn/13.3.1/img/spell/" + matches[i]["info"][j]["ss1"] + ".png");
-                        match_data_clone.querySelector("#summoner" + summoner_number + "spell2").setAttribute("src", "http://ddragon.leagueoflegends.com/cdn/13.3.1/img/spell/" + matches[i]["info"][j]["ss2"] + ".png");
-                        
-                        match_data_clone.querySelector("#kda" + summoner_number).innerHTML = matches[i]["info"][j]["kills"] + "/" + matches[i]["info"][j]["deaths"] + "/" + matches[i]["info"][j]["assists"];
-                        match_data_clone.querySelector("#cs" + summoner_number).innerHTML = matches[i]["info"][j]["cs"];
-                        match_data_clone.querySelector("#damage" + summoner_number).innerHTML = matches[i]["info"][j]["damage"];
-                        match_data_clone.querySelector("#goldearned" + summoner_number).innerHTML = matches[i]["info"][j]["goldEarned"];
-                        match_data_clone.querySelector("#visionscore" + summoner_number).innerHTML = matches[i]["info"][j]["visionScore"];
-                        match_data_clone.querySelector("#champlevel" + summoner_number).innerHTML = matches[i]["info"][j]["champLevel"];
-
-                        for (var k = 0; k < matches[i]["info"][j]["item_list"].length; k++) {
-
-                            if (matches[i]["info"][j]["item_list"][k] == 0) {
-                                
-                                match_data_clone.querySelector("#summoner" + summoner_number + "item" + (k + 1)).setAttribute("src", "data:image/gif;base64,R0lGODlhAQABAAD/ACwAAAAAAQABAAACADs=");
-
-                            }
-
-                            else {
-
-                                match_data_clone.querySelector("#summoner" + summoner_number + "item" + (k + 1)).setAttribute("src", "http://ddragon.leagueoflegends.com/cdn/13.3.1/img/item/" + matches[i]["info"][j]["item_list"][k] + ".png");
-
-                            }
-
-                        }
+                        addSummonerRow(matches[i]["info"][j], match_data_clone);
 
                     }
 
@@ -487,6 +236,7 @@
         })
     }
 
+    // Creates intersectionObserver object at bottom of the screen, and calls loadItems if on screen (bottom is visible)
     var intersectionObserver = new IntersectionObserver(entries => {
 
         if (entries[0].intersectionRatio <= 0) {

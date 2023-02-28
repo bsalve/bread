@@ -1,6 +1,6 @@
 from riotwatcher import LolWatcher
 
-watcher = LolWatcher("RGAPI-02309ce1-eefc-4b17-ae91-e7973f332d50")
+watcher = LolWatcher("RGAPI-269d70b1-ff5a-49dd-96bb-82f0ba328437")
 region = "na1"
 
 champ_dict = {}

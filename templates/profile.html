@@ -62,7 +62,7 @@
             </div>
 
         </div>
-
+        
         <div class="row">
 
             <div class="col">
@@ -74,6 +74,15 @@
                         <div class="table-responsive">
 
                             <table id="match_data_table" class="table table-striped">
+
+                                <caption id="metadata" style="caption-side:top">
+
+                                    <span id="result"></span>
+                                    <span id="timestamp"></span>
+                                    <span id="gameMode"></span>
+                                    <span id="duration"></span>
+                                
+                                </caption>
 
                                 <tr>
 
@@ -159,12 +168,12 @@
         summonerSpell2.setAttribute("height", "50px");
 
         // KDA, CS, Damage, Vision Score, Champion Level
-        var kda = row.insertCell(3).innerHTML = (summoner["kills"] + "/" + summoner["deaths"] + "/" + summoner["assists"]);
-        var cs = row.insertCell(4).innerHTML = summoner["cs"];
-        var damage = row.insertCell(5).innerHTML = summoner["damage"];
-        var goldEarned = row.insertCell(6).innerHTML = summoner["goldEarned"];
-        var visionScore = row.insertCell(7).innerHTML = summoner["visionScore"];
-        var champLevel = row.insertCell(8).innerHTML = summoner["champLevel"];
+        row.insertCell(3).innerHTML = (summoner["kills"] + "/" + summoner["deaths"] + "/" + summoner["assists"]);
+        row.insertCell(4).innerHTML = summoner["cs"];
+        row.insertCell(5).innerHTML = summoner["damage"];
+        row.insertCell(6).innerHTML = summoner["goldEarned"];
+        row.insertCell(7).innerHTML = summoner["visionScore"];
+        row.insertCell(8).innerHTML = summoner["champLevel"];
 
         // Items
         var summonerItems = row.insertCell(9).appendChild(document.createElement("span"));
@@ -193,13 +202,13 @@
 
         if (summoner["win"] == true) {
 
-            row.setAttribute("bgcolor", "#3C0D1A");
+            row.setAttribute("bgcolor", "#03333C");
 
         }
 
         else {
 
-            row.setAttribute("bgcolor", "#03333C")
+            row.setAttribute("bgcolor", "#3C0D1A")
 
         }
 
@@ -227,6 +236,12 @@
                         addSummonerRow(matches[i]["info"][j], match_data_clone);
 
                     }
+
+                    // TODO: Shows up as undefined
+                    match_data_clone.querySelector("#gameMode").innerHTML = matches[i]["metadata"][0]["gameMode"];
+                    match_data_clone.querySelector("#duration").innerHTML = matches[i]["metadata"][0]["duration"];
+                    match_data_clone.querySelector("#timestamp").innerHTML = matches[i]["metadata"][0]["timestamp"];
+                    match_data_clone.querySelector("#result").innerHTML = matches[i]["metadata"][0]["result"];
 
                     match_history.appendChild(match_data_clone);
                     counter += 1;

@@ -25,6 +25,8 @@ def profile():
 
     global matches
 
+    global region
+
     matches.clear()
 
     query = request.args.get("search")
@@ -32,6 +34,16 @@ def profile():
     if not query:
 
         return redirect(request.referrer)
+    
+    if not request.args.get("region"): 
+
+        region = region
+
+    elif request.args.get("region") != region:
+
+        region = request.args.get("region")
+
+        update_static_data(region)
 
     # Tries to store summoner data in summoner variable, return error page if fails
     try: 
@@ -79,7 +91,7 @@ def profile():
 
     for i in range(posts):
 
-        matches.append(get_match_stats(i, match_list, region))
+        matches.append(get_match_stats(summoner, i, match_list, region))
 
     return render_template("profile.html", summoner = summoner, soloq = soloq, flexq = flexq, matches = matches)
 

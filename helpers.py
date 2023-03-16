@@ -1,10 +1,32 @@
 from riotwatcher import LolWatcher
+import time
+import datetime
 
-watcher = LolWatcher("RGAPI-269d70b1-ff5a-49dd-96bb-82f0ba328437")
+watcher = LolWatcher("RGAPI-6bcf9ec8-f66a-4586-bc41-e5043955c82f")
 region = "na1"
 
 champ_dict = {}
 ss_dict = {}
+
+# queueIDs from https://static.developer.riotgames.com/docs/lol/queues.json
+
+queueIds = {0: "Custom", 
+            400: "Draft",
+            420: "Solo/Duo", 
+            430: "Blind",
+            440: "Flex",
+            450: "ARAM",
+            700: "Clash",
+            720: "ARAM Clash",
+            830: "Intro Bot",
+            840: "Beginner Bot",
+            850: "Intermediate Bot",
+            900: "ARURF",
+            1400: "Ultimate Spellbook",
+            1900: "URF",
+            2000: "Tutorial 1",
+            2010: "Tutorial 2",
+            2020: "Tutorial 3"}
 
 # Updates champion dictionary and summoner spell dictionaries with live data
 def update_static_data(region):
@@ -27,6 +49,11 @@ def update_static_data(region):
 
         ss_dict[row["key"]] = row["id"]
 
+# Converts seconds to minutes and seconds (returns string with minutes and seconds)
+def seconds_converter(seconds):
+
+    return time.strftime("%H:%M:%S", time.gmtime(seconds))
+
 # Returns a dictionary of ranked stats, takes in queue_type and summoner parameters
 def get_ranked_stats(queue_type, summoner):
 
@@ -46,15 +73,29 @@ def get_ranked_stats(queue_type, summoner):
     return ranked_stats
 
 # Returns a dictionary of "metadata" and "info", with information on participants, runes, champs, etc.
-def get_match_stats(match_number, match_list, region):
-
-    match_detail = watcher.match.by_id(region, match_list[match_number])
+def get_match_stats(summoner, match_number, match_list, region):
 
     match = {}
+
+    try: 
+        
+        match_detail = watcher.match.by_id(region, match_list[match_number])
+
+    except IndexError: 
+
+        return match
 
     match["metadata"] = []
     match["info"] = []
 
+    # Metadata (summoner win/loss, game duration, game timestamp)
+    metadata = {}
+
+    metadata["gameMode"] = queueIds[int(match_detail["info"]["queueId"])]
+    metadata["duration"] = seconds_converter(match_detail["info"]["gameDuration"])
+    metadata["timestamp"] = datetime.datetime.fromtimestamp(match_detail["info"]["gameStartTimestamp"]/1000).strftime("%m/%d/%y")
+
+    # Match info (name, champ, summoner spells, kda, etc.)
     for row in match_detail["info"]["participants"]:
 
         participant = {}
@@ -74,8 +115,19 @@ def get_match_stats(match_number, match_list, region):
         participant["goldEarned"] = row["goldEarned"]
         participant["champLevel"] = row["champLevel"]
 
+        if summoner["name"] == row["summonerName"]:
+
+            if participant["win"] == True:
+
+                metadata["result"] = "VICTORY"
+
+            else:
+
+                metadata["result"] = "DEFEAT"
+
         participant["item_list"] = []
         for i in range(7):
+
             participant["item_list"].append(row["item"+str(i)])
 
         match["info"].append(participant)
@@ -86,5 +138,7 @@ def get_match_stats(match_number, match_list, region):
 
         row["ss1"] = ss_dict[str(row["ss1"])]
         row["ss2"] = ss_dict[str(row["ss2"])]
+
+    match["metadata"].append(metadata)
 
     return match

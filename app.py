@@ -124,3 +124,7 @@ def load():
             res = make_response(jsonify(matches[counter: counter + quantity]), 200)
 
     return res
+
+
+if __name__ == '__main__':
+    app.run()

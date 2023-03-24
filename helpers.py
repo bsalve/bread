@@ -2,7 +2,7 @@ from riotwatcher import LolWatcher
 import time
 import datetime
 
-watcher = LolWatcher("RGAPI-6bcf9ec8-f66a-4586-bc41-e5043955c82f")
+watcher = LolWatcher("RGAPI-4c0eb074-56ea-4a0f-9631-450a65b7970f")
 region = "na1"
 
 champ_dict = {}
